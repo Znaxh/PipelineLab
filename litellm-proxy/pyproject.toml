@@ -1,0 +1,8 @@
+[project]
+name = "pipelinelab-litellm-proxy"
+version = "0.1.0"
+description = "Local LiteLLM proxy for PipelineLab"
+requires-python = ">=3.11"
+dependencies = [
+    "litellm[proxy]>=1.55.0",
+]

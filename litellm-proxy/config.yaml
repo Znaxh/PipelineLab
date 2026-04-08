@@ -1,0 +1,33 @@
+# LiteLLM Proxy config for PipelineLab (local dev)
+# Provider keys are read from the environment (litellm-proxy/.env or your shell).
+
+model_list:
+  # Chat — default model used by PipelineLab backend
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+
+  # Optional: Cohere chat if you prefer (call with model=command-r in the app)
+  - model_name: command-r
+    litellm_params:
+      model: cohere/command-r
+      api_key: os.environ/COHERE_API_KEY
+
+  # Embeddings — OpenAI
+  - model_name: text-embedding-3-small
+    litellm_params:
+      model: openai/text-embedding-3-small
+      api_key: os.environ/OPENAI_API_KEY
+
+  # Embeddings — Cohere (use model id your app expects, e.g. embed-english-v3.0)
+  - model_name: embed-english-v3.0
+    litellm_params:
+      model: cohere/embed-english-v3.0
+      api_key: os.environ/COHERE_API_KEY
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  store_model_in_db: false
+  disable_spend_logs: true
+  disable_error_logs: true
